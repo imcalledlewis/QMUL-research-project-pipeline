@@ -25,4 +25,5 @@ awk -F'\t' '{sub(/^chr/, "", $1); print}' hg38_column.tsv > hg38.out.bed
 #make it tab delimited 
 tr ' ' '\t' < hg38.out.bed > hg38.out.tab.bed
 
-
+#add _1,_2,_3,_..., for each repeated TE
+awk 'BEGIN { FS="\t"; OFS="\t" } {a[$4]++; if (a[$4]>1) $4=$4"_"a[$4]-1; print}' hg38.out.tab.bed > hg38.out.unique.bed
