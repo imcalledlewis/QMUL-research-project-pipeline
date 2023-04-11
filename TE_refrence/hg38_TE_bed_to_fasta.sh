@@ -12,7 +12,12 @@
 #$ -m bea
 
 #load in module 
+module load samtools/1.10
 module load bedtools/2.28.0
 
-bedtools getfasta -name -fi <Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa> -bed <hg38.out.bed>
+#Use samtools to make a fai index for GRCh38..
+samtools faidx Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa
+
+#run bedtools
+bedtools getfasta -name -fi Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa -bed hg38.out.tab.bed
 
