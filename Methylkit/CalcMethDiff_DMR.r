@@ -6,7 +6,7 @@ registerDoParallel(core = ncores)
 
 #load Unite object 
 #read the myDiff object as an RDS file
-meth <- readRDS("meth.rds")
+meth_DMR <- readRDS("meth_DMR.rds")
 
 
 # Perform differential methylation analysis between the treatment groups specified in the 'rrbsobj' object
