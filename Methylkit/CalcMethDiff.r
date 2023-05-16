@@ -5,7 +5,7 @@ ncores = 4
 registerDoParallel(core = ncores)
 
 #load Unite object 
-# Save the meht object as an RDS file
+#read the myDiff object as an RDS file
 meth <- readRDS("meth.rds")
 
 
@@ -14,5 +14,6 @@ meth <- readRDS("meth.rds")
 # The results of the differential methylation analysis are stored in the 'myDiff' object
 myDiff <- calculateDiffMeth(meth, mc.cores = ncores, overdispersion = "MN", effect = "wmean", test = "Chisq", slim = FALSE)
 
-#read the myDiff object as an RDS file
+
+# Save the myDiff object as an RDS file
 saveRDS(myDiff, file = "myDiff.rds")
