@@ -90,7 +90,8 @@ wgbsobj <- methRead(file.list,
                   mincov =2
 )
 
-
+# Save the wgbsobj object as an RDS file
+saveRDS(wgbsobj, file = "wgbsobj.rds")
 
 #filter coverage
 wgbsobj_filtered=filterByCoverage(wgbsobj, lo.count=10, lo.perc=NULL,
